@@ -11,7 +11,7 @@ int s = 0;
 int m = 0;
 void flip() {
     m_s++;
-    if (m_s == 10) {
+    if (m_s == 100) {
         m_s = 0;
         s++;
     }
@@ -23,7 +23,7 @@ void flip() {
 void set()
 {
     if(state == 0) {
-        flipper.attach(&flip, 100ms);
+        flipper.attach(&flip, 10ms);
         state = 1;
     }
     else if(state == 1) {
@@ -32,7 +32,7 @@ void set()
     } 
     else if(state == 2) state = 3;
     else if(state == 3){
-        flipper.attach(&flip, 100ms);
+        flipper.attach(&flip, 10ms);
         state = 1;
     } 
 
@@ -53,7 +53,7 @@ int main() {
 
         else if(state == 1){
             uLCD.locate(1, 2);
-            uLCD.printf("%2d:%2d:%d",m,s ,m_s);
+            uLCD.printf("%2d:%2d:%2d",m,s ,m_s);
         }
         else if (state == 2){
 
